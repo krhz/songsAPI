@@ -10,19 +10,19 @@ import UserModel from "../model/user.shchema"
 export class MongoRepository implements UserRepository {
     async findUserById(uuid: string): Promise<any> {
         const user = await UserModel.findOne({uuid})
-        return user
+        return user;
     }
     async findUserByEmail(email: string): Promise<any> {
         const user = await UserModel.findOne({email})        
-        return user
+        return user;
     }
     async registerUser(userIn: UserEntity): Promise<any> {
         const user = await UserModel.create(userIn)
-        return user
+        return user;
     }
     async listUser(): Promise<any> {
         const user = await UserModel.find()
-        return user
+        return user;
     }
     
 }

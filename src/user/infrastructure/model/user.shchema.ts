@@ -13,6 +13,9 @@ const UserSchema = new Schema(
       type: String,
       unique: true,
     },
+    password: {
+      type: String
+    },
     description: {
       type: String,
     },

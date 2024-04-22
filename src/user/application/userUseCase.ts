@@ -4,8 +4,8 @@ import { UserValue } from "../domain/user.value";
 export class UserUseCase {
   constructor(private readonly userRepository: UserRepository) {}
 
-  public  registerUser = async ({ name, email, description }) => {
-      const userValue = new UserValue({ name, email, description });      
+  public  registerUser = async ({ name, email,password,description }) => {
+      const userValue = new UserValue({ name, email, password, description });      
       const userCreated = await this.userRepository.registerUser(userValue);      
       return userCreated
   }
@@ -15,8 +15,8 @@ export class UserUseCase {
     return user
   }
 
-  public validateUserExistence = async (email:string) => {
-    const user = await this.userRepository.findUserById(email)
-    return user
+  public getValidateEmail = async (email:string) => {
+    const emailValidate = await this.userRepository.findUserByEmail(email)
+    return emailValidate
   }
 }

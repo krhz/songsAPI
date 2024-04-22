@@ -14,10 +14,11 @@ export class UserController {
   }
 
   public async insertCtrl({ body }: Request, res: Response) {
-    const {email} = body
-    const UserExists = await this.userUseCase.validateUserExistence(email);       
-    if(UserExists) return res.status(401).send({data:"duplicado"});
-    const user = await this.userUseCase.registerUser(body);
+    const { email } = body
+    const UserExists = await this.userUseCase.getValidateEmail(email);
+    if(UserExists) return res.status(401).json({data:"Email duplicado"});
+    let user = await this.userUseCase.registerUser(body);
+    // delete user.password;    
     res.send(user);
   }
 }
