@@ -6,15 +6,17 @@ const UserSchema = new Schema(
       type: String,
     },
     email: {
-      type: String,
-      unique: true,
+      type: String,      
+      required: true,
+      unique: true,     
     },
     uuid: {
       type: String,
       unique: true,
     },
     password: {
-      type: String
+      type: String,
+      required:true
     },
     description: {
       type: String,
@@ -25,6 +27,15 @@ const UserSchema = new Schema(
   }
 );
 
-const UserModel = model("users", UserSchema)
+UserSchema.set('toJSON', {
+  transform: (_document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString()
+    delete returnedObject._id
+    delete returnedObject.__v    
+    delete returnedObject.password
+  }
+})
+
+const UserModel = model(process.env.MONGO_USER_SCHEMA, UserSchema)
 
 export default UserModel

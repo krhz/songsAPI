@@ -1,8 +1,7 @@
 import "dotenv/config";
-import express from "express";
-import cors from "express";
 import userRoute from "./infrastructure/route/user.route";
 import dbInit from "./infrastructure/db/mongo";
+import { cors, express } from "../helpers/express.helper";
 
 const app = express();
 app.use(cors());
