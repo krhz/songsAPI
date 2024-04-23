@@ -1,4 +1,4 @@
-import { sign, verify } from "jsonwebtoken";
+import { sign, verify, decode } from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET || "token.01010101";
 
 const generateToken = (id: string) => {
@@ -13,4 +13,8 @@ const verifyToken = (jwt: string) => {
   return isOk;
 };
 
-export { generateToken, verifyToken };
+const decodeToken = (jwt: string) => {
+  return decode(jwt, JWT_SECRET);
+};
+
+export { generateToken, verifyToken, decodeToken };

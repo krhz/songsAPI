@@ -1,9 +1,9 @@
-import { Request, Response } from "express";
+import { Request, Response } from "../../../helpers/express.helper"
+import { verified } from "../../../helpers/bcrypt.helper";
+import { generateToken } from "../../../helpers/jwt.helper";
 import { UserUseCase } from "../../application/userUseCase";
 import { validateUserSchema } from "../../domain/user.interface";
 import { validateLoginSchema } from "../../domain/login.interface";
-import { verified } from "../../../helpers/bcrypt.helper";
-import { generateToken } from "../../../helpers/jwt.helper";
 
 export class UserController {
   constructor(private userUseCase: UserUseCase) {

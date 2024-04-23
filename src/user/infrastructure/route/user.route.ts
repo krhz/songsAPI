@@ -1,5 +1,6 @@
 
 import { route } from "../../../helpers/express.helper";
+import { authorize } from "../../../middleware/index";
 import { UserUseCase } from "../../application/userUseCase";
 import { UserController } from "../controller/user.ctrl";
 import { MongoRepository } from "../repository/mongo.repository";
@@ -27,7 +28,7 @@ const userCtrl = new UserController(userUseCase)
  */
 
 route.post(`/user`, userCtrl.insertCtrl)
-route.get(`/user`, userCtrl.getCtrl)
+route.get(`/user`, [authorize],userCtrl.getCtrl)
 route.post("/login", userCtrl.loginCtrl);
 
 export default route
