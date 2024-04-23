@@ -1,9 +1,8 @@
 /**
  * Infra! Mongo 🙌
  */
-import { unknown } from "zod";
-import { SongEntity } from "../../domain/song.entity";
-import { SongRepository } from "../../domain/song.repository";
+import { SongEntity } from "../../domain/song.entity";//corregir
+import { SongRepository } from "../../domain/song.repository";//corregir
 import SongModel from "../model/song.shchema"
 /**
  * Mongo! 
@@ -17,7 +16,6 @@ export class MongoRepository implements SongRepository {
             throw new Error("Method not implemented.");
         }
     }
-
     
     async findUserByName(author: string): Promise<any> {
         try {
@@ -30,10 +28,12 @@ export class MongoRepository implements SongRepository {
     
     async registerSong(song: SongEntity): Promise<any> {
         try {
-            const createdSong = await SongModel.create(song);            
+            console.log(song)
+            const createdSong = await SongModel.create(song);
             return createdSong;
         } catch (error) {            
-           return Error("Method not implemented.");
+            console.error(error)
+            return Error("Method not implemented.");
         }
     }
     

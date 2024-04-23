@@ -7,7 +7,7 @@ export class SongUseCase {
 
   public  createSong = async ({title, author, description, id}) => {             
         const songValue = new SongValue({ title, author, description, owner:id });      
-        const songCreated = await this.SongRepository.registerSong(songValue);        
+        const songCreated = await this.SongRepository.registerSong(songValue);
         return songCreated 
   }
 
@@ -21,12 +21,7 @@ export class SongUseCase {
     return songDetail  
   }
 
-  public updateSong = async ({title, author, description, id}) => {       
-    // const emailValidate = await this.SongRepository.updateSong(author)
-    // return emailValidate  
-  }
-
-  public getSong = async (author:string) => {       
+public getSong = async (author:string) => {       
     const songs = await this.SongRepository.listSong()
     return songs  
   }

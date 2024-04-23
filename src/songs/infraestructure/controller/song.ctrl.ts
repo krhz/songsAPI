@@ -14,8 +14,8 @@ export class SongController {
     res.send(song);
   }
 
-  public async insertCtrl({ body }: Request, res: Response) {    
-    const taskResult = validateSongSchema(body)
+  public async insertCtrl({ body }: Request, res: Response) {   
+    const taskResult = validateSongSchema(body)    
     if (!taskResult.success) {return res.status(400).json({ error: JSON.parse(taskResult.error.message) })}        
     let createdSong = await this.songUseCase.createSong(body);    
     res.send(createdSong);

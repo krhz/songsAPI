@@ -15,19 +15,19 @@ const songRepo = new MongoRepository()
  * Iniciamos casos de uso
  */
 
-const userUseCase = new SongUseCase(songRepo)
+const songUseCase = new SongUseCase(songRepo)
 
 /**
  * Iniciar User Controller
  */
 
-const songCtrl = new SongController(userUseCase)
+const songCtrl = new SongController(songUseCase)
 
 /**
  * TODO: ENDPOINTS 
  */
 
-route.post(`/createSong`, songCtrl.insertCtrl)
+route.post(`/createSong`, authorize, songCtrl.insertCtrl)
 route.get(`/getSongs`, authorize, songCtrl.getCtrl)
 
 export default route

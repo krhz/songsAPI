@@ -12,6 +12,6 @@ const songSchema = z.object({
     }),
 })
 
-export function validateSongSchema (input) {
-  return songSchema.safeParse(input)
+export function validateSongSchema (input: object) {    
+    return songSchema.safeParse(input)
 }

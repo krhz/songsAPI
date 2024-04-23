@@ -2,26 +2,37 @@ import { Schema, model } from "mongoose";
 
 const SongSchema = new Schema(
   {
-    author: {
-      type: String,
+    uuid:{
+      type:String,
+      unique:true,
+      required:true
     },
-    email: {
-      type: String,      
-      required: true,
-      unique: true,     
+    title:{
+      type:String,
+      required:true
     },
-    uuid: {
-      type: String,
-      unique: true,
-    },  
-    description: {
-      type: String,
+    author:{
+      type:String,
+      required:true
+    },
+    description:{
+      type:String,
+      required:true
+    },
+    owner:{
+      type:String,
+      required:true
+    },
+    public:{
+      type:String,
+      required:true 
     },
   },
   {
     timestamps: true,
   }
 );
+
 
 const SongModel = model(process.env.MONGO_SONG_SCHEMA, SongSchema)
 

@@ -1,8 +1,8 @@
 /**
  * Infra! Mongo 🙌
  */
-import { UserEntity } from "../../domain/user.entity";
-import { UserRepository } from "../../domain/user.repository";
+import { UserEntity } from "../../domain/user.entity";//corregir
+import { UserRepository } from "../../domain/user.repository";//corregir
 import UserModel from "../model/user.shchema"
 /**
  * Mongo! 
