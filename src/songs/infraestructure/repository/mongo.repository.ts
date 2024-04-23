@@ -30,9 +30,10 @@ export class MongoRepository implements SongRepository {
     
     async registerSong(song: SongEntity): Promise<any> {
         try {
-            return {"message":"asd"} as unknown as SongEntity;
+            const createdSong = await SongModel.create(song);            
+            return createdSong;
         } catch (error) {            
-            throw new Error("Method not implemented.");
+           return Error("Method not implemented.");
         }
     }
     

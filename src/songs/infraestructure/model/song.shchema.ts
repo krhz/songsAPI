@@ -13,11 +13,7 @@ const SongSchema = new Schema(
     uuid: {
       type: String,
       unique: true,
-    },
-    password: {
-      type: String,
-      required:true
-    },
+    },  
     description: {
       type: String,
     },
@@ -27,6 +23,6 @@ const SongSchema = new Schema(
   }
 );
 
-const SongModel = model(process.env.MONGO_USER_SCHEMA, SongSchema)
+const SongModel = model(process.env.MONGO_SONG_SCHEMA, SongSchema)
 
 export default SongModel
