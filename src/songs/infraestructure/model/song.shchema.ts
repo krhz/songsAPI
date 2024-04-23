@@ -33,6 +33,17 @@ const SongSchema = new Schema(
   }
 );
 
+SongSchema.set('toJSON', {
+  transform: (_document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString()
+    delete returnedObject._id
+    delete returnedObject.__v
+    delete returnedObject.updatedAt
+    delete returnedObject.createdAt
+    delete returnedObject.uuid
+  }
+})
+
 
 const SongModel = model(process.env.MONGO_SONG_SCHEMA, SongSchema)
 

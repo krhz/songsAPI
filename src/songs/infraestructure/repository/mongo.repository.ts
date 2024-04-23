@@ -28,7 +28,6 @@ export class MongoRepository implements SongRepository {
     
     async registerSong(song: SongEntity): Promise<any> {
         try {
-            console.log(song)
             const createdSong = await SongModel.create(song);
             return createdSong;
         } catch (error) {            
