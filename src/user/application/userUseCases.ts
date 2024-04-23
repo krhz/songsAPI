@@ -6,7 +6,7 @@ export class UserUseCase {
   constructor(private readonly userRepository: UserRepository) {}
 
   public  registerUser = async ({name, email, password, description}) => {
-        const passHash = await encrypt(password); //TODO        
+        const passHash = await encrypt(password);   
         const userValue = new UserValue({ name, email, password:passHash, description });      
         const userCreated = await this.userRepository.registerUser(userValue);        
         return userCreated 

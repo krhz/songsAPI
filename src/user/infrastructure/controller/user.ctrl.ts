@@ -1,9 +1,9 @@
 import { Request, Response } from "../../../helpers/express.helper"
 import { verified } from "../../../helpers/bcrypt.helper";
 import { generateToken } from "../../../helpers/jwt.helper";
-import { UserUseCase } from "../../application/userUseCase";
-import { validateUserSchema } from "../../domain/user.interface";
-import { validateLoginSchema } from "../../domain/login.interface";
+import { UserUseCase } from "../../application/userUseCases";
+import { validateUserSchema } from "../model/user.interface";
+import { validateLoginSchema } from "../model/login.interface";
 
 export class UserController {
   constructor(private userUseCase: UserUseCase) {
