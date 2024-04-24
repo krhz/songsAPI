@@ -6,5 +6,4 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 export const userApp = app.use(userRoute);

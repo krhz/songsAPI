@@ -6,9 +6,9 @@ const UserSchema = new Schema(
       type: String,
     },
     email: {
-      type: String,      
+      type: String,
       required: true,
-      unique: true,     
+      unique: true,
     },
     uuid: {
       type: String,
@@ -16,7 +16,7 @@ const UserSchema = new Schema(
     },
     password: {
       type: String,
-      required:true
+      required: true,
     },
     description: {
       type: String,
@@ -27,15 +27,15 @@ const UserSchema = new Schema(
   }
 );
 
-UserSchema.set('toJSON', {
+UserSchema.set("toJSON", {
   transform: (_document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString()
-    delete returnedObject._id
-    delete returnedObject.__v    
-    delete returnedObject.password
-  }
-})
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
+    delete returnedObject.password;
+  },
+});
 
-const UserModel = model(process.env.MONGO_USER_SCHEMA, UserSchema)
+const UserModel = model(process.env.MONGO_USER_SCHEMA, UserSchema);
 
-export default UserModel
+export default UserModel;

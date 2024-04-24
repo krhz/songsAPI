@@ -2,30 +2,30 @@ import { Schema, model } from "mongoose";
 
 const SongSchema = new Schema(
   {
-    uuid:{
-      type:String,
-      unique:true,
-      required:true
+    uuid: {
+      type: String,
+      unique: true,
+      required: true,
     },
-    title:{
-      type:String,
-      required:true
+    title: {
+      type: String,
+      required: true,
     },
-    author:{
-      type:String,
-      required:true
+    author: {
+      type: String,
+      required: true,
     },
-    description:{
-      type:String,
-      required:true
+    description: {
+      type: String,
+      required: true,
     },
-    owner:{
-      type:String,
-      required:true
+    owner: {
+      type: String,
+      required: true,
     },
-    public:{
-      type:String,
-      required:true 
+    public: {
+      type: String,
+      required: true,
     },
   },
   {
@@ -33,18 +33,17 @@ const SongSchema = new Schema(
   }
 );
 
-SongSchema.set('toJSON', {
+SongSchema.set("toJSON", {
   transform: (_document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString()
-    delete returnedObject._id
-    delete returnedObject.__v
-    delete returnedObject.updatedAt
-    delete returnedObject.createdAt
-    delete returnedObject.uuid
-  }
-})
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
+    delete returnedObject.updatedAt;
+    delete returnedObject.createdAt;
+    delete returnedObject.uuid;
+  },
+});
 
+const SongModel = model(process.env.MONGO_SONG_SCHEMA, SongSchema);
 
-const SongModel = model(process.env.MONGO_SONG_SCHEMA, SongSchema)
-
-export default SongModel
+export default SongModel;

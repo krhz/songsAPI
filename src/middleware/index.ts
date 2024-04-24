@@ -1,3 +1,3 @@
 import { authorize } from "./authorizer";
 
-export { authorize }
+export { authorize };
