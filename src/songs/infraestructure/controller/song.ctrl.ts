@@ -6,24 +6,29 @@ export class SongController {
   constructor(private songUseCase: SongUseCase) {
     this.insertCtrl = this.insertCtrl.bind(this)
     this.getCtrl = this.getCtrl.bind(this)
+    this.getCtrlById = this.getCtrlById.bind(this)
+    this.getCtrlByOwner = this.getCtrlByOwner.bind(this)
   }
 
   public async getCtrl(req: Request, res: Response) {
-    const { uuid } = req.params;
-    const { id } = req.body;
-    
-    if (!uuid) {
-      const song = await this.songUseCase.getSongs();
-      res.send(song)
-    }
-    
-    const uniqueSong = await this.songUseCase.getDetailedSong(uuid,id)
-    res.send(uniqueSong);
-    
-
-
-
+    const song = await this.songUseCase.getSongs();
+    res.send(song);
   }
+
+  public async getCtrlById(req: Request, res: Response) {
+    const { uuid } = req.params;
+    const uniqueSong = await this.songUseCase.getDetailedSong(uuid)
+    return res.send(uniqueSong);
+  }
+
+
+  public async getCtrlByOwner(req: Request, res: Response) {
+    const { id } = req.body;
+    const uniqueSong = await this.songUseCase.getSongByOwner(id)
+    return res.send(uniqueSong);
+  }
+
+
 
   public async insertCtrl({ body }: Request, res: Response) {
     const taskResult = validateSongSchema(body)
@@ -31,4 +36,18 @@ export class SongController {
     let createdSong = await this.songUseCase.createSong(body);
     res.send(createdSong);
   }
+
+
+
+  public async updateCtrl({ body }: Request, res: Response) {
+    const taskResult = validateSongSchema(body);
+    if (!taskResult.success) { return res.status(400).json({ error: JSON.parse(taskResult.error.message) }) }
+    //TODO
+    // let createdSong = await this.songUseCase.createSong(body);
+    // res.send(createdSong);
+  }
+
+  
+
+
 }

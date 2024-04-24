@@ -7,12 +7,10 @@ export const authorize = async (req:Request, res:Response, nextFunction:NextFunc
          if (!token) return res.status(403).json({message:"No token provided"})   
          var tokenSinBearer = token.replace('Bearer ', '');
          const { exp, id }= decodeToken(tokenSinBearer);
-         console.log('--rqt--',req);
          const expired = (Date.now() >= exp * 1000)
          if(expired) return res.status(403).json({message:"Token expired"})
-            // req.body.id = id;
+            req.body.id = id;
           nextFunction()
-         // dedsarrollar logica si token expiro y autorizar siguiente funcion
    } catch (error) {
         console.log("🚀 ~ authorize ~ error:", error)
         res.status(401);

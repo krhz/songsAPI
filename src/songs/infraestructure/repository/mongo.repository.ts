@@ -8,51 +8,63 @@ import SongModel from "../model/song.shchema"
  * Mongo! 
  */
 export class MongoRepository implements SongRepository {
-    async findSongById(uuid: string, id: string): Promise<any> {
+
+    async findSongById(codigo: string): Promise<any> {
         try {
-            const song = await SongModel.findOne({_id:uuid}, {owner: id});  
-            if (!song) return {code:"2",message:"No Existe",data:{}}                    
-            return song as unknown as SongEntity;            
+            const song = await SongModel.find({ _id: codigo });
+            if (!song) return { code: "2", message: "No Existe", data: {} };
+            return song as unknown as SongEntity;
         } catch (error) {
-            console.log("🚀 ~ MongoRepository ~ findSongById ~ error:", error)            
-            return Error("Method not implemented.");
+            console.log("🚀 ~ MongoRepository ~ findSongById ~ error:", error);
+            throw new Error("Error en la búsqueda de la canción.");
         }
     }
-    
+
+    async findSongByOwner(codigo: string): Promise<any> {
+        try {
+            const song = await SongModel.find({ owner: codigo });
+            if (!song) return { code: "2", message: "No Existe", data: {} };
+            return song as unknown as SongEntity;
+        } catch (error) {
+            console.log("🚀 ~ MongoRepository ~ findSongByOwner ~ error:", error);
+            throw new Error("Error en la búsqueda de la canción.");
+        }
+    }
+
     async findUserByName(author: string): Promise<any> {
         try {
-            const song = await SongModel.findOne({author});
+            const song = await SongModel.findOne({ author });
             return song as unknown as SongEntity;
-        } catch (error) {            
+        } catch (error) {
             console.log("🚀 ~ MongoRepository ~ findUserByName ~ error:", error)
             throw new Error("Method not implemented.");
         }
     }
-    
+
     async registerSong(song: SongEntity): Promise<any> {
         try {
             const createdSong = await SongModel.create(song);
             return createdSong;
-        } catch (error) {                        
+        } catch (error) {
             console.log("🚀 ~ MongoRepository ~ registerSong ~ error:", error)
             return Error("Method not implemented.");
         }
     }
-    
+
     async updateSong(song: Partial<any>): Promise<any> {
         try {
-            return {"message":"asd"} as unknown as SongEntity;
-        } catch (error) {            
+            return { "message": "asd" } as unknown as SongEntity;
+        } catch (error) {
             console.log("🚀 ~ MongoRepository ~ updateSong ~ error:", error)
             throw new Error("Method not implemented.");
         }
     }
-    
+
     async listSong(): Promise<SongEntity[]> {
-        try {            
+        try {
             const songs = await SongModel.find()
             return songs as unknown as SongEntity[];
-        } catch (error) {    
+        } catch (error) {
             console.log("🚀 ~ MongoRepository ~ listSong ~ error:", error)
             throw new Error("Method not implemented.");
         }
