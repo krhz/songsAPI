@@ -1,15 +1,23 @@
-import { decodeToken } from "../helpers/jwt.helper"
+import { NextFunction,Request,Response } from "express";
+import { decodeToken, verifyToken } from "../helpers/jwt.helper"
 
-export const authorize = async (req, res, nextFunction) => {
+export const authorize = async (req:Request, res:Response, nextFunction:NextFunction) => {
    try {
-          const token = req.headers['x-access-token']
-          if (!token) return res.status(403).json({message:"No token provided"})
-          const { id, exp } = decodeToken(token);
-          const expired = (Date.now() >= exp * 1000)
-          // if(expired) return res.status(403).json({message:"Token expired"})              
-          req.body.id = id;
+         const token = req.headers.authorization
+
+         console.log("🚀 ~ authorize ~ token:", token)
+         if (!token) return res.status(403).json({message:"No token provided"})
+      //TODO
+         const { exp } = decodeToken(token);
+         console.log("🚀 ~ authorize ~ exp:", exp)
+         const expired = (Date.now() >= exp * 1000)
+         // if(expired) return res.status(403).json({message:"Token expired"})              
+         //  req.body.id = id;
           nextFunction()
+         // dedsarrollar logica si token expiro y autorizar siguiente funcion
    } catch (error) {
-        return res.status(401).json({ message:"Unauthorized" })    
+        console.log("🚀 ~ authorize ~ error:", error)
+        res.status(401);
+        res.json({ message:"Unauthorized" })    
    }
 }
