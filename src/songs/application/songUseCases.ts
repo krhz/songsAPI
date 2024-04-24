@@ -10,8 +10,8 @@ export class SongUseCase {
         return songCreated 
   }
 
-  public  getDetailedSong = async (uuid: string) => {
-      const songDetail = await this.SongRepository.findSongById(uuid)
+  public  getDetailedSong = async (uuid: string,id: string) => {
+      const songDetail = await this.SongRepository.findSongById(uuid, id)
       return songDetail
   }
 

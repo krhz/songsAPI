@@ -9,21 +9,26 @@ export class SongController {
   }
 
   public async getCtrl(req: Request, res: Response) {
-    if (!req.params) {
+    const { uuid } = req.params;
+    const { id } = req.body;
+    
+    if (!uuid) {
       const song = await this.songUseCase.getSongs();
       res.send(song)
     }
-    const {uuid} = req.params
-    console.log("🚀 ~ SongController ~ getCtrl ~ req.params:", uuid)      
-    const uniqueSong = await this.songUseCase.getDetailedSong(uuid)
     
-    res.send(uniqueSong)
+    const uniqueSong = await this.songUseCase.getDetailedSong(uuid,id)
+    res.send(uniqueSong);
+    
+
+
+
   }
 
-  public async insertCtrl({ body }: Request, res: Response) {   
-    const taskResult = validateSongSchema(body)    
-    if (!taskResult.success) {return res.status(400).json({ error: JSON.parse(taskResult.error.message) })}        
-    let createdSong = await this.songUseCase.createSong(body);    
+  public async insertCtrl({ body }: Request, res: Response) {
+    const taskResult = validateSongSchema(body)
+    if (!taskResult.success) { return res.status(400).json({ error: JSON.parse(taskResult.error.message) }) }
+    let createdSong = await this.songUseCase.createSong(body);
     res.send(createdSong);
   }
 }

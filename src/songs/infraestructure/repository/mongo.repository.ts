@@ -8,9 +8,9 @@ import SongModel from "../model/song.shchema"
  * Mongo! 
  */
 export class MongoRepository implements SongRepository {
-    async findSongById(uuid: string): Promise<any> {
+    async findSongById(uuid: string, id: string): Promise<any> {
         try {
-            const song = await SongModel.findOne({_id:uuid});  
+            const song = await SongModel.findOne({_id:uuid}, {owner: id});  
             if (!song) return {code:"2",message:"No Existe",data:{}}                    
             return song as unknown as SongEntity;            
         } catch (error) {
