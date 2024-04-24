@@ -1,6 +1,6 @@
 import { Request, Response } from "../../../helpers/express.helper"
 import { SongUseCase } from "../../application/songUseCases";
-import { validateSongSchema } from "../model/song.interface";
+import { validatePartialSong, validateSongSchema } from "../model/song.interface";
 
 export class SongController {
   constructor(private songUseCase: SongUseCase) {
@@ -8,6 +8,8 @@ export class SongController {
     this.getCtrl = this.getCtrl.bind(this)
     this.getCtrlById = this.getCtrlById.bind(this)
     this.getCtrlByOwner = this.getCtrlByOwner.bind(this)
+    this.updateCtrl = this.updateCtrl.bind(this)
+    
   }
 
   public async getCtrl(req: Request, res: Response) {
@@ -39,12 +41,12 @@ export class SongController {
 
 
 
-  public async updateCtrl({ body }: Request, res: Response) {
-    const taskResult = validateSongSchema(body);
+  public async updateCtrl({ body, params }: Request, res: Response) {
+    const { id } = params;
+    const taskResult = validatePartialSong(body);
     if (!taskResult.success) { return res.status(400).json({ error: JSON.parse(taskResult.error.message) }) }
-    //TODO
-    // let createdSong = await this.songUseCase.createSong(body);
-    // res.send(createdSong);
+    let createdSong = await this.songUseCase.updateSong(id , body);
+    res.send(createdSong);
   }
 
   

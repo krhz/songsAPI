@@ -51,13 +51,15 @@ export class MongoRepository implements SongRepository {
         }
     }
 
-    async updateSong(song: Partial<any>): Promise<any> {
+    async updateSong(songID:string, song: Partial<any>): Promise<any> {
         try {
-            return { "message": "asd" } as unknown as SongEntity;
+            const createdSong = await  SongModel.findOneAndUpdate({ id: songID }, { $set: song }, { returnNewDocument: true })
+            return createdSong;
         } catch (error) {
             console.log("🚀 ~ MongoRepository ~ updateSong ~ error:", error)
-            throw new Error("Method not implemented.");
+            return Error("Method not implemented.");
         }
+
     }
 
     async listSong(): Promise<SongEntity[]> {

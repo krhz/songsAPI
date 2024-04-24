@@ -15,3 +15,8 @@ const songSchema = z.object({
 export function validateSongSchema (input: object) {    
     return songSchema.safeParse(input)
 }
+
+
+export function validatePartialSong (input) {
+    return songSchema.partial().safeParse(input)
+  }

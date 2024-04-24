@@ -31,7 +31,7 @@ route.post(`/createSong`, authorize, songCtrl.insertCtrl)
 route.get(`/getSongs`, authorize, songCtrl.getCtrl)
 route.get(`/getSongs/:uuid?`, authorize, songCtrl.getCtrlById)
 route.get(`/getMySongs`, authorize, songCtrl.getCtrlByOwner)
-route.put(`/updateSongs`, authorize, songCtrl.updateCtrl)
+route.put(`/updateSongs/:id`, authorize, songCtrl.updateCtrl)
 
 
 

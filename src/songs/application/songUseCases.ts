@@ -10,6 +10,14 @@ export class SongUseCase {
         return songCreated 
   }
 
+  public  updateSong = async (songID,{title, author, description, id}) => {             
+    const songValue = new SongValue({ title, author, description, owner:id });
+    const songCreated = await this.SongRepository.updateSong(songID,songValue);
+    return songCreated 
+}
+
+
+
   public  getDetailedSong = async (codigo: string) => {
       const songDetail = await this.SongRepository.findSongById(codigo)
       return songDetail
