@@ -8,10 +8,16 @@ export class SongController {
     this.getCtrl = this.getCtrl.bind(this)
   }
 
-  public async getCtrl({ query }: Request, res: Response) {
-    const { uuid = '' } = query;
-    const song = await this.songUseCase.getDetailSong(`${uuid}`);
-    res.send(song);
+  public async getCtrl(req: Request, res: Response) {
+    if (!req.params) {
+      const song = await this.songUseCase.getSongs();
+      res.send(song)
+    }
+    const {uuid} = req.params
+    console.log("🚀 ~ SongController ~ getCtrl ~ req.params:", uuid)      
+    const uniqueSong = await this.songUseCase.getDetailedSong(uuid)
+    
+    res.send(uniqueSong)
   }
 
   public async insertCtrl({ body }: Request, res: Response) {   

@@ -28,6 +28,6 @@ const songCtrl = new SongController(songUseCase)
  */
 
 route.post(`/createSong`, authorize, songCtrl.insertCtrl)
-route.get(`/getSongs`, authorize, songCtrl.getCtrl)
+route.get(`/getSongs/:uuid?`, authorize, songCtrl.getCtrl)
 
 export default route

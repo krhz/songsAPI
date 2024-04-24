@@ -1,4 +1,3 @@
-import { encrypt } from "../../helpers/bcrypt.helper";
 import { SongRepository } from "../domain/song.repository";
 import { SongValue } from "../domain/song.value";
 
@@ -11,7 +10,7 @@ export class SongUseCase {
         return songCreated 
   }
 
-  public  getDetailSong = async (uuid:string) => {
+  public  getDetailedSong = async (uuid: string) => {
       const songDetail = await this.SongRepository.findSongById(uuid)
       return songDetail
   }
@@ -21,7 +20,7 @@ export class SongUseCase {
     return songDetail  
   }
 
-public getSong = async (author:string) => {       
+public getSongs = async () => {       
     const songs = await this.SongRepository.listSong()
     return songs  
   }
