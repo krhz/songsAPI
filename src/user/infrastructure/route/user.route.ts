@@ -1,5 +1,8 @@
 import { route } from "../../../helpers/express.helper";
-import { authorize } from "../../../middleware/index";
+import {
+  authorize,
+  logMiddleware,
+} from "../../../middlewares/index.middlewares";
 import { UserUseCase } from "../../application/userUseCases";
 import { UserController } from "../controller/user.ctrl";
 import { MongoRepository } from "../repository/mongo.repository";
@@ -25,8 +28,8 @@ const userCtrl = new UserController(userUseCase);
  *
  */
 
-route.post(`/user`, userCtrl.insertCtrl);
-route.get(`/user`, authorize, userCtrl.getCtrl);
-route.post("/login", userCtrl.loginCtrl);
+route.post(`/user`, logMiddleware, userCtrl.insertCtrl);
+route.get(`/user`, [logMiddleware, authorize], userCtrl.getCtrl);
+route.post("/login", logMiddleware, userCtrl.loginCtrl);
 
 export default route;
