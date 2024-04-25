@@ -9,21 +9,35 @@ import UserModel from "../model/user.shchema";
  */
 export class MongoRepository implements UserRepository {
   async findUserById(uuid: string): Promise<any> {
-    console.log("🚀 ~ MongoRepository ~ findUserById ~ uuid:", uuid);
-    const user = await UserModel.findOne({ _id: uuid });
-    console.log("🚀 ~ MongoRepository ~ findUserById ~ user:", user);
-    return user;
+    try {
+      const user = await UserModel.findOne({ _id: uuid });
+      return user;
+    } catch (error) {
+      console.log("🚀 ~ MongoRepository ~ findUserById ~ error:", error);
+    }
   }
   async findUserByEmail(email: string): Promise<any> {
-    const user = await UserModel.findOne({ email });
-    return user;
+    try {
+      const user = await UserModel.findOne({ email });
+      return user;
+    } catch (error) {
+      console.log("🚀 ~ MongoRepository ~ findUserByEmail ~ error:", error);
+    }
   }
   async registerUser(userIn: UserEntity): Promise<any> {
-    const user = await UserModel.create(userIn);
-    return user;
+    try {
+      const user = await UserModel.create(userIn);
+      return user;
+    } catch (error) {
+      console.log("🚀 ~ MongoRepository ~ registerUser ~ error:", error);
+    }
   }
   async listUser(): Promise<any> {
-    const user = await UserModel.find();
-    return user;
+    try {
+      const user = await UserModel.find();
+      return user;
+    } catch (error) {
+      console.log("🚀 ~ MongoRepository ~ listUser ~ error:", error);
+    }
   }
 }

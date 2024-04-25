@@ -22,6 +22,6 @@ export const authorize = async (
   } catch (error) {
     console.log("🚀 ~ authorize ~ error:", error);
     res.status(401);
-    res.json({ message: "Error Autorizando Request" });
+    res.json({ message: "Unautorized request" });
   }
 };
