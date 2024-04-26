@@ -1,8 +1,9 @@
 # Sistema de Canciones CRUD
 
-¡Bienvenido/a al sistema de gestión de canciones!
+¡Bienvenido a SongsAPI!
 
-Este proyecto fue desarrollado por Kevin Hernández utilizando las tecnologías más avanzadas en el mundo de Node.js. Con una arquitectura sólida y eficiente, este sistema te permite realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) en una base de datos MongoDB.
+Saludos 57Blocks team
+Este proyecto fue desarrollado con mucho amor por Kevin Hernández, utilizando Node.js, Express, Jest, etc. Siguiendo los principios solid y con intencionalidad de hacerlo escalable se implementó DDD (Domain Driven Desing) identificando dos dominios como lo son Users y Songs, este sistema te permite realizar operaciones como Crear, Leer, Actualizar registros de canciones en una base de datos MongoDB, usando Mongoose como ORM.
 
 ## Instalación
 
@@ -37,7 +38,23 @@ npm run test
 - Express
 - TypeScript
 - Mongoose
+- Zod
 - y más!
+
+## COOL FEATURES 😎😎
+
+Tenemos Middlewares!! - Como podras observar tenemos por el momento dos middlewares encargados de interceptar algunas peticiones y agregarle un poco más de sazón! 😘 - Loggin - Autorize
+
+Tenemos dependencias críticas en la carpeta Helpers, procurando así la reutilización de codigo y componentes transversales en el software
+
+Tenemos Unit Testing!! en el directorio /src/test encontrarás dos ficheros, uno apuntando a algunos de los casos de uso de las canciones (Crear, obtener, obtener las mias), tambien prueba el logearse en el app de users, considero que para los fines de la prueba cumple con lo requerido (es viernes y el cuerpo lo sabe jaja)
+PD: agregué un health test para revisar que el app se encuentre respondiendo segun lo esperado
+
+Tenemos (en el directorio /docs) un archivo compatible con postman con tests de integración (Estuve investigando al respecto y quedé como espero que quedes tú al verlos) 😉😉😋
+
+## DISCLAIMER
+
+El repositorio mencionado hace parte del proceso de seleccion en la compañia 57Blocks y no puede ser usado para otros fines a los aqui mencionados.
 
 ## Contribuciones
 
