@@ -7,6 +7,13 @@ import SongModel from "../model/song.shchema";
 /**
  * Mongo!
  */
+export interface  OptionsPaginateMongo {
+  page: number;
+  limit: number;
+}
+
+
+
 export class MongoRepository implements SongRepository {
   async findSongById(codigo: string): Promise<any> {
     try {
@@ -66,11 +73,17 @@ export class MongoRepository implements SongRepository {
 
   async listSong(): Promise<SongEntity[]> {
     try {
-      const songs = await SongModel.find();
-      return songs as unknown as SongEntity[];
+      const songs:SongEntity[] = await SongModel.find();
+      return songs;
+      //return songs as unknown as SongEntity[];
     } catch (error) {
       console.log("🚀 ~ MongoRepository ~ listSong ~ error:", error);
       throw new Error("Method not implemented.");
     }
-  }
+  }  
 }
+
+
+
+
+

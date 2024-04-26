@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import mongoosePagination from "mongoose-paginate-v2";
 
 const SongSchema = new Schema(
   {
@@ -44,6 +45,12 @@ SongSchema.set("toJSON", {
   },
 });
 
-const SongModel = model(process.env.MONGO_SONG_SCHEMA, SongSchema);
 
-export default SongModel;
+
+SongSchema.plugin(mongoosePagination);
+
+export default model("SongSchema", SongSchema);
+
+// const SongModel = model(process.env.MONGO_SONG_SCHEMA, SongSchema);
+
+// export default SongModel;
