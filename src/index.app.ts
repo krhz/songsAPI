@@ -13,3 +13,5 @@ const port = process.env.PORT || 3001;
 app.use(userApp, songApp);
 dbInit().then();
 app.listen(port, () => console.log(`USER, Listo por el puerto ${port}`));
+
+module.exports = app;

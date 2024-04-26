@@ -1,4 +1,4 @@
-import { Schema, model, paginate } from "../../../helpers/mongoose.helper";
+import { Schema, model } from "../../../helpers/mongoose.helper";
 
 const UserSchema = new Schema(
   {
@@ -27,7 +27,7 @@ const UserSchema = new Schema(
   }
 );
 
-UserSchema.plugin(paginate);
+// UserSchema.plugin(paginate);
 
 UserSchema.set("toJSON", {
   transform: (_document, returnedObject) => {

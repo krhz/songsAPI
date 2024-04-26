@@ -1,4 +1,4 @@
 import { Schema, model } from "mongoose";
-import paginate from "mongoose-paginate-v2";
+// import paginate from "mongoose-paginate-v2";
 
-export { Schema, model, paginate };
+export { Schema, model };

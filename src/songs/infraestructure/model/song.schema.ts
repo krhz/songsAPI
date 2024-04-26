@@ -1,4 +1,4 @@
-import { Schema, model, paginate } from "../../../helpers/mongoose.helper";
+import { Schema, model } from "../../../helpers/mongoose.helper";
 
 const SongSchema = new Schema(
   {
@@ -43,7 +43,7 @@ SongSchema.set("toJSON", {
     delete returnedObject.uuid;
   },
 });
-SongSchema.plugin(paginate);
+// SongSchema.plugin(paginate);
 
 const SongModel = model(process.env.MONGO_SONG_SCHEMA, SongSchema);
 

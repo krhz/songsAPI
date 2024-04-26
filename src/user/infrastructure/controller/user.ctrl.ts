@@ -40,7 +40,9 @@ export class UserController {
         .status(400)
         .json({ token: null, error: JSON.parse(taskResult.error.message) });
     }
+    
     const UserExists = await this.userUseCase.getValidateEmail(email);
+    console.log("controler",UserExists)
     if (!UserExists)
       return res.status(401).json({ message: "Usuario Inexistente." });
     const passwordHash = UserExists.password; //TODO el encriptado!
