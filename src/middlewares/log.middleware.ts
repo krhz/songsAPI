@@ -9,6 +9,7 @@ const logMiddleware = (req: Request, res: Response, next: NextFunction) => {
     console.debug("🚀 ~ logMiddleware ~ url:", req.url);
     console.debug("🚀 ~ logMiddleware ~ headers:", req.headers);
     console.debug("🚀 ~ logMiddleware ~ body:", req.body);
+    // console.debug("🚀 ~ logMiddleware ~ protocol:", req);
   } else if (logLevel === "info") {
     console.info("Request Recibida Exitosamente en el endpoint:", req.url);
   }
