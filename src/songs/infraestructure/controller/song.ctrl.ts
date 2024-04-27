@@ -1,5 +1,6 @@
 import { Request, Response } from "../../../helpers/express.helper";
 import { SongUseCase } from "../../application/songUseCases";
+import { PaginationResult } from "../../domain/song.entity";
 import {
   validatePartialSong,
   validateSongSchema,
@@ -15,7 +16,8 @@ export class SongController {
   }
 
   public async getCtrl(req: Request, res: Response) {
-    const song = await this.songUseCase.getSongs();
+    const optionsPaginacionMongo = req.query;
+    const song = await this.songUseCase.getSongs(optionsPaginacionMongo);
     res.send(song);
   }
 
