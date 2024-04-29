@@ -1,26 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1714169378110" clover="3.2.0">
-  <project timestamp="1714169378110" name="All files">
-    <metrics statements="68" coveredstatements="49" conditionals="12" coveredconditionals="2" methods="7" coveredmethods="5" elements="87" coveredelements="56" complexity="0" loc="68" ncloc="68" packages="5" files="5" classes="5"/>
+<coverage generated="1714268662624" clover="3.2.0">
+  <project timestamp="1714268662624" name="All files">
+    <metrics statements="57" coveredstatements="27" conditionals="10" coveredconditionals="2" methods="7" coveredmethods="3" elements="74" coveredelements="32" complexity="0" loc="57" ncloc="57" packages="5" files="6" classes="6"/>
+    <package name="helpers">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="mongoose.helper.ts" path="/Users/kevinrenehernandez/Documents/GitHub/songsAPI/src/helpers/mongoose.helper.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+      </file>
+    </package>
     <package name="middlewares">
-      <metrics statements="10" coveredstatements="6" conditionals="5" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <file name="log.middleware.ts" path="C:\Users\Kevo\Documents\GitHub\songsAPI\src\middlewares\log.middleware.ts">
+      <metrics statements="28" coveredstatements="8" conditionals="10" coveredconditionals="2" methods="3" coveredmethods="1"/>
+      <file name="authorizer.middleware.ts" path="/Users/kevinrenehernandez/Documents/GitHub/songsAPI/src/middlewares/authorizer.middleware.ts">
+        <metrics statements="18" coveredstatements="2" conditionals="5" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+      </file>
+      <file name="log.middleware.ts" path="/Users/kevinrenehernandez/Documents/GitHub/songsAPI/src/middlewares/log.middleware.ts">
         <metrics statements="10" coveredstatements="6" conditionals="5" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="8" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
-        <line num="13" count="7" type="cond" truecount="0" falsecount="1"/>
+        <line num="13" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="17" count="7" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
       </file>
     </package>
     <package name="songs">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="song.app.ts" path="C:\Users\Kevo\Documents\GitHub\songsAPI\src\songs\song.app.ts">
+      <file name="song.app.ts" path="/Users/kevinrenehernandez/Documents/GitHub/songsAPI/src/songs/song.app.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -31,73 +60,36 @@
         <line num="9" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="songs.infraestructure.db">
-      <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="mongo.ts" path="C:\Users\Kevo\Documents\GitHub\songsAPI\src\songs\infraestructure\db\mongo.ts">
-        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-      </file>
-    </package>
-    <package name="user">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="user.app.ts" path="C:\Users\Kevo\Documents\GitHub\songsAPI\src\user\user.app.ts">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-      </file>
-    </package>
-    <package name="user.infrastructure.controller">
-      <metrics statements="38" coveredstatements="24" conditionals="7" coveredconditionals="0" methods="5" coveredmethods="3"/>
-      <file name="user.ctrl.ts" path="C:\Users\Kevo\Documents\GitHub\songsAPI\src\user\infrastructure\controller\user.ctrl.ts">
-        <metrics statements="38" coveredstatements="24" conditionals="7" coveredconditionals="0" methods="5" coveredmethods="3"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
-        <line num="38" count="2" type="cond" truecount="0" falsecount="1"/>
+    <package name="songs.infraestructure.model">
+      <metrics statements="11" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="song.schema.ts" path="/Users/kevinrenehernandez/Documents/GitHub/songsAPI/src/songs/infraestructure/model/song.schema.ts">
+        <metrics statements="11" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
-        <line num="44" count="2" type="stmt"/>
-        <line num="45" count="2" type="cond" truecount="0" falsecount="1"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="2" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
-        <line num="49" count="2" type="cond" truecount="0" falsecount="1"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="56" count="2" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="user.infrastructure.model">
+      <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="user.shchema.ts" path="/Users/kevinrenehernandez/Documents/GitHub/songsAPI/src/user/infrastructure/model/user.shchema.ts">
+        <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
       </file>
     </package>
   </project>

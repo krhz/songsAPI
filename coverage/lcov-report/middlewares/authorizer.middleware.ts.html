@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for middlewares/log.middleware.ts</title>
+    <title>Code coverage report for middlewares/authorizer.middleware.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">middlewares</a> log.middleware.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">middlewares</a> authorizer.middleware.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">14.28% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/10</span>
+                <span class='fraction'>3/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">11.11% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/10</span>
+                <span class='fraction'>2/18</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -83,46 +83,67 @@
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { NextFunction, Request, Response } from "../helpers/express.helper";
+import { verifyToken } from "../helpers/jwt.helper";
 &nbsp;
-const logMiddleware = (req: Request, res: Response, next: NextFunction) =&gt; {
-  // Obtener el valor de la variable de entorno
-  const logLevel = process.env.LOG_LEVEL || <span class="branch-1 cbranch-no" title="branch not covered" >"info";</span> // Por defecto, se utiliza 'info'(none para desactivar y debug para imprimir todas desde variable de entorno &lt;3 ) si la variable de entorno no está definida
-&nbsp;
-  // Loggear dinámicamente según el nivel especificado
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (logLevel === "debug") {
-<span class="cstat-no" title="statement not covered" >    console.debug("🚀 ~ logMiddleware ~ url:", req.url);</span>
-<span class="cstat-no" title="statement not covered" >    console.debug("🚀 ~ logMiddleware ~ headers:", req.headers);</span>
-<span class="cstat-no" title="statement not covered" >    console.debug("🚀 ~ logMiddleware ~ body:", req.body);</span>
-    // console.debug("🚀 ~ logMiddleware ~ protocol:", req);
-  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (logLevel === "info") {
-<span class="cstat-no" title="statement not covered" >    console.info("Request Recibida Exitosamente en el endpoint:", req.url);</span>
+export const authorize = <span class="fstat-no" title="function not covered" >async (</span>
+  req: Request,
+  res: Response,
+  nextFunction: NextFunction<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+) =&gt; {
+<span class="cstat-no" title="statement not covered" >  try {</span>
+    const <span class="cstat-no" title="statement not covered" >token = req.headers.authorization;</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!token) <span class="cstat-no" title="statement not covered" >return res.status(403).json({ message: "No token provided" });</span></span>
+    const <span class="cstat-no" title="statement not covered" >jwtOnly = token.split(" ").pop();</span>
+    const <span class="cstat-no" title="statement not covered" >{ exp, id } = v</span>erifyToken(jwtOnly);
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!exp || !id) {</span>
+<span class="cstat-no" title="statement not covered" >      res.status(403);</span>
+<span class="cstat-no" title="statement not covered" >      res.json({ message: "Error Verificando Request" });</span>
+    }
+    const <span class="cstat-no" title="statement not covered" >expired = Date.now() &gt;= exp * 1000;</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (expired) <span class="cstat-no" title="statement not covered" >return res.status(403).json({ message: "Token expired" });</span></span>
+<span class="cstat-no" title="statement not covered" >    req.body.id = id;</span>
+<span class="cstat-no" title="statement not covered" >    nextFunction();</span>
+  } catch (error) {
+<span class="cstat-no" title="statement not covered" >    console.log("🚀 ~ authorize ~ error:", error);</span>
+<span class="cstat-no" title="statement not covered" >    res.status(401);</span>
+<span class="cstat-no" title="statement not covered" >    res.json({ message: "Unautorized request" });</span>
   }
-&nbsp;
-  next();
 };
-&nbsp;
-export { logMiddleware };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
