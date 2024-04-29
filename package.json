@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/index.app.ts",
-    "test": "jest --watch --silent --detectOpenHandles",
+    "test": "jest --watchAll --silent --detectOpenHandles",
     "build": "npm "
   },
   "keywords": [],
