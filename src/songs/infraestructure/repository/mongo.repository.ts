@@ -3,7 +3,8 @@
  */
 import { SongEntity } from "../../domain/song.entity"; //corregir
 import { SongRepository } from "../../domain/song.repository"; //corregir
-import SongModel from "../model/song.shchema";
+import SongModel from "../model/song.schema";
+
 /**
  * Mongo!
  */
@@ -64,7 +65,8 @@ export class MongoRepository implements SongRepository {
         { $set: song },
         { returnNewDocument: true }
       );
-      return createdSong;
+      if (!createdSong) return { message: "No se han actualizado registros" };
+      return { message: `Song.${createdSong.id} Updated successfully` };
     } catch (error) {
       console.log("🚀 ~ MongoRepository ~ updateSong ~ error:", error);
       return Error("Method not implemented.");

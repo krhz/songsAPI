@@ -2,25 +2,15 @@ import { route } from "../../../helpers/express.helper";
 import { authorize, logMiddleware, } from "../../../middlewares/index.middlewares";
 import { SongUseCase } from "../../application/songUseCases";
 import { SongController } from "../controller/song.ctrl";
-import SongModel from "../model/song.shchema";
+import SongModel from "../model/song.schema";
 import { MongoRepository } from "../repository/mongo.repository";
 import Product from '../model/prueba'
-import songShchema from "../model/song.shchema";
+import songSchema from "../model/song.schema";
 /**
  * Iniciar Repository
  */
 const songRepo = new MongoRepository();
-
-/**
- * Iniciamos casos de uso
- */
-
 const songUseCase = new SongUseCase(songRepo);
-
-/**
- * Iniciar User Controller
- */
-
 const songCtrl = new SongController(songUseCase);
 
 route.post(`/createSong`, [logMiddleware, authorize], songCtrl.insertCtrl);

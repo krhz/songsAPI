@@ -1,0 +1,1125 @@
+{
+	"info": {
+		"_postman_id": "8a86deca-55a0-499e-b477-1a9050048b32",
+		"name": "Music Store - OpenAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9066497",
+		"_collection_link": "https://www.postman.com/martian-shuttle-535413/workspace/57blocks/collection/9066497-8a86deca-55a0-499e-b477-1a9050048b32?action=share&source=collection_link&creator=9066497"
+	},
+	"item": [
+		{
+			"name": "Songs",
+			"item": [
+				{
+					"name": "{songId}",
+					"item": [
+						{
+							"name": "Get a song",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/getSongs/66297c5da56d48557fd19fd0",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getSongs",
+										"66297c5da56d48557fd19fd0"
+									]
+								},
+								"description": "Get an existing song"
+							},
+							"response": []
+						},
+						{
+							"name": "Update a song",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"<string>\",\n  \"artist\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"album\": \"<string>\",\n  \"genre\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/updateSongs/66297c5da56d48557fd19fd0",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"updateSongs",
+										"66297c5da56d48557fd19fd0"
+									]
+								},
+								"description": "Update an existing song"
+							},
+							"response": [
+								{
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"artist\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"album\": \"<string>\",\n  \"genre\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/songs/:songId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"songs",
+												":songId"
+											],
+											"variable": [
+												{
+													"key": "songId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Invalid ID supplied",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"artist\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"album\": \"<string>\",\n  \"genre\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/songs/:songId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"songs",
+												":songId"
+											],
+											"variable": [
+												{
+													"key": "songId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Song not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"artist\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"album\": \"<string>\",\n  \"genre\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/songs/:songId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"songs",
+												":songId"
+											],
+											"variable": [
+												{
+													"key": "songId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Validation exception",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"artist\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"album\": \"<string>\",\n  \"genre\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/songs/:songId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"songs",
+												":songId"
+											],
+											"variable": [
+												{
+													"key": "songId"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Coleccion de requests que requieren parametro de SongID para funcionar."
+				},
+				{
+					"name": "Get all songs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Title is a non-empty string\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('array');",
+									"  responseData.forEach(function(song) {",
+									"    pm.expect(song.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+									"  });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Author is a non-empty string\", function () {",
+									"  const responseData = pm.response.json();",
+									"",
+									"  pm.expect(responseData).to.be.an('array');",
+									"  responseData.forEach(function(song){",
+									"    pm.expect(song.author).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Author should not be empty\");",
+									"  });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Description is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    responseData.forEach(function(song) {",
+									"        pm.expect(song.description).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Description should not be empty\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMmJiMzFmLTMxMTMtNDBhZC04YjlkLWNlNDY4M2Q2ZWY1MCIsImlhdCI6MTcxMzk5NDgzMSwiZXhwIjoxODEzOTk0ODMxfQ.X0Ol4LxFCp-ehGXv9_ZOhEXk_OdM-O_rCkjJOcZqg1U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg3N2I3MzE4LTJjM2ItNDYzZC1hNTY4LWFjNTk4NzgxNmRhNiIsImlhdCI6MTcxMzg1NDk1NywiZXhwIjoxNzEzODU0OTU4fQ.9wfameWFZQEYO5yKHq49ms2HBRiDMtoWLBJucpyXAkQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/getSongs/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getSongs",
+								""
+							]
+						},
+						"description": "Get all songs"
+					},
+					"response": []
+				},
+				{
+					"name": "Get My songs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"",
+									"    responseData.forEach(function(song) {",
+									"        pm.expect(song).to.have.property('title');",
+									"        pm.expect(song).to.have.property('author');",
+									"        pm.expect(song).to.have.property('description');",
+									"        pm.expect(song).to.have.property('owner');",
+									"        pm.expect(song).to.have.property('public');",
+									"        pm.expect(song).to.have.property('id');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Title is a non-empty string\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('array');",
+									"  ",
+									"  responseData.forEach(function(song) {",
+									"    pm.expect(song.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+									"  });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Author is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(song) {",
+									"        pm.expect(song.author).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Author should not be empty\");",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Owner is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(song){",
+									"        pm.expect(song.owner).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMmJiMzFmLTMxMTMtNDBhZC04YjlkLWNlNDY4M2Q2ZWY1MCIsImlhdCI6MTcxMzk5NDgzMSwiZXhwIjoxODEzOTk0ODMxfQ.X0Ol4LxFCp-ehGXv9_ZOhEXk_OdM-O_rCkjJOcZqg1U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg3N2I3MzE4LTJjM2ItNDYzZC1hNTY4LWFjNTk4NzgxNmRhNiIsImlhdCI6MTcxMzg1NDk1NywiZXhwIjoxNzEzODU0OTU4fQ.9wfameWFZQEYO5yKHq49ms2HBRiDMtoWLBJucpyXAkQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/getMySongs/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getMySongs",
+								""
+							]
+						},
+						"description": "Get all songs"
+					},
+					"response": [
+						{
+							"name": "A Song object.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/songs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"songs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n   \"_id\":\"UUID\",\n  \"title\": \"<string>\",\n  \"artist\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"album\": \"<string>\",\n  \"genre\": \"<string>\"\n}"
+						},
+						{
+							"name": "Invalid ID supplied",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/songs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"songs"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Song not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/songs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"songs"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Validation exception",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/songs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"songs"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Save a song",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Title is a non-empty string\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Author is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.author).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Description is a non-empty string\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData.description).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMmJiMzFmLTMxMTMtNDBhZC04YjlkLWNlNDY4M2Q2ZWY1MCIsImlhdCI6MTcxMzk5NDgzMSwiZXhwIjoxODEzOTk0ODMxfQ.X0Ol4LxFCp-ehGXv9_ZOhEXk_OdM-O_rCkjJOcZqg1U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg3N2I3MzE4LTJjM2ItNDYzZC1hNTY4LWFjNTk4NzgxNmRhNiIsImlhdCI6MTcxMzg1NDk1NywiZXhwIjoxNzEzODU0OTU4fQ.9wfameWFZQEYO5yKHq49ms2HBRiDMtoWLBJucpyXAkQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"author\": \"xxxxxx perreo\", \n  \"title\": \"Un xxxxx astronómico\",\n  \"description\": \"Mi xxx en la música llegará\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/createSong",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"createSong"
+							]
+						},
+						"description": "Save a song"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a song",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has required fields\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.message).to.exist;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Message is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.message).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type header is set to application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Request URL is correct and contains the song ID\", function () {",
+									"    pm.expect(pm.request.url).to.equal(\"http://localhost:3001/updateSongs/66297c5da56d48557fd19fd0\");",
+									"    pm.expect(pm.request.url).to.contain(\"66297c5da56d48557fd19fd0\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMmJiMzFmLTMxMTMtNDBhZC04YjlkLWNlNDY4M2Q2ZWY1MCIsImlhdCI6MTcxMzk5NDgzMSwiZXhwIjoxODEzOTk0ODMxfQ.X0Ol4LxFCp-ehGXv9_ZOhEXk_OdM-O_rCkjJOcZqg1U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg3N2I3MzE4LTJjM2ItNDYzZC1hNTY4LWFjNTk4NzgxNmRhNiIsImlhdCI6MTcxMzg1NDk1NywiZXhwIjoxNzEzODU0OTU4fQ.9wfameWFZQEYO5yKHq49ms2HBRiDMtoWLBJucpyXAkQ",
+								"type": "text"
+							},
+							{
+								"key": "id",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{     \n     \"title\": \"Amor  Kevin\",\n     \"author\": \"Perro con perreo\",\n     \"description\": \"Mi 2024 en la música llegará\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/updateSongs/66297c5da56d48557fd19fd0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"updateSongs",
+								"66297c5da56d48557fd19fd0"
+							]
+						},
+						"description": "Save a song"
+					},
+					"response": []
+				}
+			],
+			"description": "Dominio core del aplicativo, en esta coleccion se encuentran las transacciones disponibles sobre la entidad Canciones, la cual está alojada en MongoDb y será compartida posteriormente."
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register - Sign Up",
+					"item": [
+						{
+							"name": "Creating a new user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n     \"name\": \"User Test\",\n     \"email\": \"testo@gmail.com\",\n     \"password\": \"12345678Kh!\",\n     \"description\": \"Testing purpouses\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									]
+								},
+								"description": "This service is to create a new user"
+							},
+							"response": [
+								{
+									"name": "Creating a new user",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n     \"name\": \"User Test\",\n     \"email\": \"testo@gmail.com\",\n     \"password\": \"12345678Kh!\",\n     \"description\": \"Testing purpouses\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"user"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "236"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ec-5bn3Y45ZNuBFzShrYqTUCreHjgw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 26 Apr 2024 15:32:18 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"name\": \"User Test\",\n    \"email\": \"testo@gmail.com\",\n    \"uuid\": \"22ccd7f6-61b1-4cb8-bca7-04b4de88249a\",\n    \"description\": \"Testing purpouses\",\n    \"createdAt\": \"2024-04-26T15:32:18.835Z\",\n    \"updatedAt\": \"2024-04-26T15:32:18.835Z\",\n    \"id\": \"662bc902057b9f38e2f1bd05\"\n}"
+								}
+							]
+						}
+					],
+					"description": "Coleccion de requests asociadas al flujo de registrar un nuevo usuario."
+				},
+				{
+					"name": "login - Sign in",
+					"item": [
+						{
+							"name": "login User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has required fields - token and email\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.token).to.exist.and.to.be.a('string');",
+											"    pm.expect(responseData.email).to.exist.and.to.be.a('string');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Token is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.token).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Token should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Email is in a valid email format\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.email).to.exist.and.to.match(/^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$/);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Content-Type header is set to 'application/json'\", function () {",
+											"  pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"testo@gmail.com\",\n    \"password\": \"12345678Kh!\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"login"
+									]
+								},
+								"description": "This service is to logging a user"
+							},
+							"response": [
+								{
+									"name": "login User Test",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"testo@gmail.com\",\n    \"password\": \"12345678Kh!\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3001/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "225"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"e1-wBKFvQxj8tkTTbBPxevNPVATybc\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 26 Apr 2024 15:36:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyY2NkN2Y2LTYxYjEtNGNiOC1iY2E3LTA0YjRkZTg4MjQ5YSIsImlhdCI6MTcxNDE0NTc3NywiZXhwIjoxODE0MTQ1Nzc3fQ.m3TXE8Gc_ch-28U1cc7AxI5mRKtGV36T2yhliiir33A\",\n    \"email\": \"testo@gmail.com\"\n}"
+								}
+							]
+						}
+					],
+					"description": "Colección de requests asociadas al flujo login - sign up, se utiliza el email asociado en auth/register"
+				},
+				{
+					"name": "Get Users",
+					"item": [
+						{
+							"name": "Get Users",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "x-access-token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg3N2I3MzE4LTJjM2ItNDYzZC1hNTY4LWFjNTk4NzgxNmRhNiIsImlhdCI6MTcxMzg1NDIwMCwiZXhwIjoxNzEzODU0MjAxfQ.t0h4IYCC33p2G-8XlkIy_mIbp80HPm3nWtegZEc6N5o",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user?uuid=5dbe77bf-014c-47dc-8db2-f45ff5847a0e",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									],
+									"query": [
+										{
+											"key": "uuid",
+											"value": "5dbe77bf-014c-47dc-8db2-f45ff5847a0e"
+										},
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								},
+								"description": "This service is to logging a user"
+							},
+							"response": [
+								{
+									"name": "Login Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"erick@gmail.com\",\n  \"password\": \"3008408564Kh!\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "225"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"e1-ZpNvIcscp6EQuDgztqE6X6am4kU\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 Apr 2024 01:43:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg3N2I3MzE4LTJjM2ItNDYzZC1hNTY4LWFjNTk4NzgxNmRhNiIsImlhdCI6MTcxMzgzNjYyNCwiZXhwIjoxNzEzODQzODI0fQ.l1o-6PBvB_G0LEVLfPfgv--yi7dFYsrWc_o4LDIDKic\",\n    \"email\": \"erick@gmail.com\"\n}"
+								}
+							]
+						}
+					],
+					"description": "Colección de requests asociadas al flujo login - sign up, se utiliza el email asociado en auth/register"
+				}
+			],
+			"description": "Autentication domain"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3001"
+		}
+	]
+}
