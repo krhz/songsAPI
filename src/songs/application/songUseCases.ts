@@ -31,8 +31,8 @@ export class SongUseCase {
     return songDetail;
   };
 
-  public getSongs = async () => {
-    const songs = await this.SongRepository.listSong();
+  public getSongs = async (optionsPaginacionMongo) => {
+    const songs = await this.SongRepository.listSong(optionsPaginacionMongo);
     return songs;
   };
 }
