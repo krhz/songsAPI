@@ -10,6 +10,7 @@ export const authorize = async (
     const token = req.headers.authorization;
     if (!token) return res.status(403).json({ message: "No token provided" });
     const jwtOnly = token.split(" ").pop();
+    if(typeof jwtOnly === 'undefined') return res.json({message:"Undefined Auth Type"}) 
     const { exp, id } = verifyToken(jwtOnly);
     if (!exp || !id) {
       res.status(403);
