@@ -13,21 +13,9 @@ const songRepo = new MongoRepository();
 const songUseCase = new SongUseCase(songRepo);
 const songCtrl = new SongController(songUseCase);
 
-route.post(`/createSong`, [logMiddleware, authorize], songCtrl.insertCtrl);
-route.get(`/getSongs`, [logMiddleware, authorize], songCtrl.getCtrl);
-route.get(`/getSongs/:uuid?`, [logMiddleware, authorize], songCtrl.getCtrlById);
-route.get(`/getMySongs`, [logMiddleware, authorize], songCtrl.getCtrlByOwner);
-route.put(`/updateSongs/:id`, [logMiddleware, authorize], songCtrl.updateCtrl);
-
-route.get("/list", async (req, res) => {
-
-  const options = req.query;
-  // find products and paginate
-  // const products = await Product.paginate({}, options);
-  const products = await Product.find();
-
-  // respond to the user
-  res.json(products);
-});
-
+route.post(`/createSong`, [authorize], songCtrl.insertCtrl);
+route.get(`/getSongs`, [authorize], songCtrl.getCtrl);
+route.get(`/getSongs/:uuid?`, [authorize], songCtrl.getCtrlById);
+route.get(`/getMySongs`, [authorize], songCtrl.getCtrlByOwner);
+route.put(`/updateSongs/:id`, [authorize], songCtrl.updateCtrl);
 export default route;

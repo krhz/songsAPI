@@ -1,7 +1,7 @@
 /**
  * Infra! Mongo 🙌
  */
-import { SongEntity } from "../../domain/song.entity"; //corregir
+import { ISongModel, PaginationResult, SongEntity } from "../../domain/song.entity"; //corregir
 import { SongRepository } from "../../domain/song.repository"; //corregir
 import SongModel from "../model/song.schema";
 
@@ -12,6 +12,7 @@ export interface  OptionsPaginateMongo {
   page: number;
   limit: number;
 }
+
 
 
 
@@ -73,16 +74,27 @@ export class MongoRepository implements SongRepository {
     }
   }
 
-  async listSong(): Promise<SongEntity[]> {
+  async listSong(optionsPaginacionMongo): Promise<PaginationResult<SongEntity>> {    
     try {
-      const songs:SongEntity[] = await SongModel.find();
+      const songs: PaginationResult<SongEntity> = await SongModel.paginate({}, optionsPaginacionMongo);
       return songs;
-      //return songs as unknown as SongEntity[];
     } catch (error) {
       console.log("🚀 ~ MongoRepository ~ listSong ~ error:", error);
       throw new Error("Method not implemented.");
     }
-  }  
+  }
+
+
+  // async listSong(): Promise<ISongModel[]> {
+  //   try {
+  //     const songs:ISongModel[] = await SongModel.paginate({},{});
+  //     return songs;
+  //     //return songs as unknown as SongEntity[];
+  //   } catch (error) {
+  //     console.log("🚀 ~ MongoRepository ~ listSong ~ error:", error);
+  //     throw new Error("Method not implemented.");
+  //   }
+  // }  
 }
 
 
